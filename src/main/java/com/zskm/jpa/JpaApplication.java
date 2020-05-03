@@ -27,6 +27,8 @@ public class JpaApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		Course courseById = this.courseRepository.findById(100L);
 		Logger.info("100 -> {}",courseById);
+		
+		this.courseRepository.deleteById(100L);
 	}
 	
 
