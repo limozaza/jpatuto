@@ -29,6 +29,8 @@ public class JpaApplication implements CommandLineRunner{
 		Logger.info("100 -> {}",courseById);
 		
 		this.courseRepository.deleteById(100L);
+		
+		this.courseRepository.save(new Course("JPA-03"));
 	}
 	
 
