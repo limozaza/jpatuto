@@ -1,5 +1,10 @@
 package com.zskm.jpa;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +23,9 @@ public class JpaApplication implements CommandLineRunner{
 	@Autowired
 	private CourseRepository courseRepository;
 	
+	@Autowired
+	private EntityManager em;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(JpaApplication.class, args);
@@ -31,6 +39,13 @@ public class JpaApplication implements CommandLineRunner{
 		this.courseRepository.deleteById(100L);
 		
 		this.courseRepository.save(new Course("JPA-03"));
+		
+		Query query = this.em.createNamedQuery("query_all_courses");
+		List<Course> resultList = query.getResultList();
+		
+		Logger.info("Array -> {}",resultList);
+		
+		
 	}
 	
 
