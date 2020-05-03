@@ -1,2 +1,2 @@
-insert into course(id,name) values (100, 'Jpa 01');
-insert into course(id,name) values (101, 'Jpa 02');
+insert into course(id,name,created_date,last_update_date) values (100, 'Jpa 01',sysdate(),sysdate());
+insert into course(id,name,created_date,last_update_date) values (101, 'Jpa 02',sysdate(),sysdate());
