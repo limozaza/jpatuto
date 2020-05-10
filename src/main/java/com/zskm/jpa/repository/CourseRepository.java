@@ -1,5 +1,7 @@
 package com.zskm.jpa.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zskm.jpa.entity.Course;
+import com.zskm.jpa.entity.Review;
 
 @Repository
 @Transactional
@@ -32,6 +35,16 @@ public class CourseRepository {
 			this.em.merge(course);
 		}
 		return course;
+	}
+	
+	public void addReviewsForCourse(Long idCourse, List<Review> reviews) {
+		Course c = findById(idCourse);
+		
+		for(Review review:reviews) {
+			review.setCourse(c);
+			em.persist(review);
+		}
+		
 	}
 	
 

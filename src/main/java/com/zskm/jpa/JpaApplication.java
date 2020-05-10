@@ -1,5 +1,6 @@
 package com.zskm.jpa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.zskm.jpa.entity.Course;
 import com.zskm.jpa.entity.Passport;
+import com.zskm.jpa.entity.Review;
 import com.zskm.jpa.entity.Student;
 import com.zskm.jpa.repository.CourseRepository;
 import com.zskm.jpa.repository.StudentRepository;
@@ -42,7 +44,7 @@ public class JpaApplication implements CommandLineRunner{
 		Course courseById = this.courseRepository.findById(100L);
 		Logger.info("100 -> {}",courseById);
 		
-		this.courseRepository.deleteById(100L);
+		//this.courseRepository.deleteById(100L);
 		
 		this.courseRepository.save(new Course("JPA-03"));
 		
@@ -61,6 +63,13 @@ public class JpaApplication implements CommandLineRunner{
 		Passport passport = this.em.find(Passport.class, 10001l);
 		
 		Logger.info("Passport -> {}",passport.getStudent().getName());
+		
+		
+		List<Review> reviews = new ArrayList<Review>();
+		reviews.add(new Review("3","cava moyen"));
+		reviews.add(new Review("2","nulle ce cours"));
+		
+		courseRepository.addReviewsForCourse(1l, reviews);
 		
 		
 	}
