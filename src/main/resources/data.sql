@@ -9,6 +9,12 @@ insert into student(id,name,passport_id) values (1000,'Zakaria',10000);
 insert into student(id,name,passport_id) values (1001,'Sofia',10001);
 insert into student(id,name,passport_id) values (1002,'Kassym',10002);
 
+
+insert into student_course(student_id,course_id) values (1000,100);
+insert into student_course(student_id,course_id) values (1000,101); 
+insert into student_course(student_id,course_id) values (1001,100); 
+
+
 insert into review(id,rating,description,course_id) values (10,'5','Tres Bon cours',100);
 insert into review(id,rating,description,course_id) values (11,'4','Bon cours',100);
 insert into review(id,rating,description,course_id) values (12,'5','Tres Bon cours',101);

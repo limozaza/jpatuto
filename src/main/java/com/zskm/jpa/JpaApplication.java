@@ -71,7 +71,6 @@ public class JpaApplication implements CommandLineRunner{
 		
 		courseRepository.addReviewsForCourse(1l, reviews);
 		
-		
 	}
 	
 
